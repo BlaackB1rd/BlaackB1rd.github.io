@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/код/css/page2.css">
+    <link rel="icon" href="/Катинки/Logo.svg">
+    <title>Каталог - Gym House</title>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <article class="container">
+            <div class="container--logo">
+                <img src="/Катинки/Logo.svg" alt="" width="80">
+                <a href="" class="logo">Gym <br> House</a>
+            </div>
+            
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul class="header--list">
+                    <li class="header--list--item"><a href="/код/html/page1.html">Главная</a></li>
+                    <li class="header--list--item"><a href="/код/html/page2.html">Каталог</a></li>
+                    <li class="header--list--item"><a href="/код/html/page3.html">Доставка и оплата</a></li>
+                    <li class="header--list--item">
+                        <a href="/код/html/page4.html" class="cart-icon">
+                            Корзина
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </article>
+    </header>
+    
+    <main>
+        <h1>Каталог</h1>
+        
+        <!-- Тренажёры -->
+        <div class="menu" onclick="toggleProducts('trenazhery')">
+            <div class="menu--img">
+                <h3 class="imgText1">Тренажёры</h3>
+                <img class="img" src="/Катинки/exercise.png" alt="#">
+            </div>
+        </div>
+        
+        <div class="product-cont" id="trenazhery">
+            <div class="product" data-id="treadmill">
+                <div class="img-inf">
+                    <img src="/Катинки/run.png">
+                    <div class="info">
+                        <h2>Беговая дорожка Everyfit 74305A</h2>
+                        <ul>
+                            <li>120х40х120 (см)</li>
+                            <li>Максимальная скорость: 13 км/ч</li>
+                            <li>Скоростей: 4</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="details-but">
+                    <div class="items">
+                        <ul class="details">
+                            <li><strong>Гарантия:</strong> 6 месяцев.</li>
+                            <li><strong>Доставка:</strong> Бесплатная доставка по Беларуси.</li>
+                            <li><strong>Способы оплаты:</strong> наличными, безналичными</li>
+                        </ul>
+                    </div>
+                    <div class="but">
+                        <button class="buy-btn">Купить</button>
+                        <button class="add-to-cart" onclick="addProductToCart('treadmill', 'Беговая дорожка Everyfit 74305A', 3800, '/Катинки/run.png')">В корзину</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product" data-id="power-station">
+                <div class="img-inf">
+                    <img src="/Катинки/ex1.png">
+                    <div class="info">
+                        <h2>Силовая станция Protrain MT7000</h2>
+                        <ul>
+                            <li>168x114x212 (см)</li>
+                            <li>Встроенные веса</li>
+                            <li>Вес тренажёра: 150 кг</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="details-but">
+                    <div class="items">
+                        <ul class="details">
+                            <li><strong>Гарантия:</strong> 12 месяцев.</li>
+                            <li><strong>Доставка:</strong> Бесплатная доставка по Беларуси.</li>
+                            <li><strong>Способы оплаты:</strong> наличными, безналичными</li>
+                        </ul>
+                    </div>
+                    <div class="but">
+                        <button class="buy-btn">Купить</button>
+                        <button class="add-to-cart" onclick="addProductToCart('power-station', 'Силовая станция Protrain MT7000', 12500, '/Катинки/ex1.png')">В корзину</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product" data-id="smith-machine">
+                <div class="img-inf">
+                    <img src="/Катинки/smith.png">
+                    <div class="info">
+                        <h2>Машина Смита Impulse IF-SMITH</h2>
+                        <ul>
+                            <li>160х220х220 (см)</li>
+                            <li>Свободные веса</li>
+                            <li>Вес тренажера: 170 кг</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="details-but">
+                    <div class="items">
+                        <ul class="details">
+                            <li><strong>Гарантия:</strong> 12 месяцев.</li>
+                            <li><strong>Доставка:</strong> Бесплатная доставка по Беларуси.</li>
+                            <li><strong>Способы оплаты:</strong> наличными, безналичными</li>
+                        </ul>
+                    </div>
+                    <div class="but">
+                        <button class="buy-btn">Купить</button>
+                        <button class="add-to-cart" onclick="addProductToCart('smith-machine', 'Машина Смита Impulse IF-SMITH', 9800, '/Катинки/smith.png')">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Гантели -->
+        <div class="menu" onclick="toggleProducts('ganteli')">
+            <div class="menu--img">
+                <h3 class="imgText2">Гантели</h3>
+                <img class="img" src="/Катинки/bumb.png" alt="#">
+            </div>
+        </div>
+        
+        <div class="product-cont" id="ganteli">
+            <div class="product" data-id="dumbbell-9kg">
+                <div class="img-inf">
+                    <img src="/Катинки/bumb10.png">
+                    <div class="info">
+                        <h2>Гантели стальные IronGrip 9kg</h2>
+                        <ul>
+                            <li>Вес: 9 кг</li>
+                            <li>Материал: резина</li>
+                            <li>Стальная ручка</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="details-but">
+                    <div class="items">
+                        <ul class="details">
+                            <li><strong>Гарантия:</strong> 1 месяц.</li>
+                            <li><strong>Доставка:</strong> Бесплатная доставка по Беларуси.</li>
+                            <li><strong>Способы оплаты:</strong> наличными, безналичными</li>
+                        </ul>
+                    </div>
+                    <div class="but">
+                        <button class="buy-btn">Купить</button>
+                        <button class="add-to-cart" onclick="addProductToCart('dumbbell-9kg', 'Гантели стальные IronGrip 9kg', 1200, '/Катинки/bumb10.png')">В корзину</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product" data-id="dumbbell-15kg">
+                <div class="img-inf">
+                    <img src="/Катинки/bumb15.png">
+                    <div class="info">
+                        <h2>Гантели неопреновые ProGym 15kg</h2>
+                        <ul>
+                            <li>Вес: 15 кг</li>
+                            <li>Материал: резина</li>
+                            <li>Стальная ручка</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="details-but">
+                    <div class="items">
+                        <ul class="details">
+                            <li><strong>Гарантия:</strong> 1 месяц.</li>
+                            <li><strong>Доставка:</strong> Бесплатная доставка по Беларуси.</li>
+                            <li><strong>Способы оплаты:</strong> наличными, безналичными</li>
+                        </ul>
+                    </div>
+                    <div class="but">
+                        <button class="buy-btn">Купить</button>
+                        <button class="add-to-cart" onclick="addProductToCart('dumbbell-15kg', 'Гантели неопреновые ProGym 15kg', 1800, '/Катинки/bumb15.png')">В корзину</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product" data-id="dumbbell-20kg">
+                <div class="img-inf">
+                    <img src="/Катинки/bumb20.png">
+                    <div class="info">
+                        <h2>Гантели наборные ProGym 20kg</h2>
+                        <ul>
+                            <li>Вес: 20 кг</li>
+                            <li>Материал: резина</li>
+                            <li>Стальная ручка</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="details-but">
+                    <div class="items">
+                        <ul class="details">
+                            <li><strong>Гарантия:</strong> 1 месяц.</li>
+                            <li><strong>Доставка:</strong> Бесплатная доставка по Беларуси.</li>
+                            <li><strong>Способы оплаты:</strong> наличными, безналичными</li>
+                        </ul>
+                    </div>
+                    <div class="but">
+                        <button class="buy-btn">Купить</button>
+                        <button class="add-to-cart" onclick="addProductToCart('dumbbell-20kg', 'Гантели наборные ProGym 20kg', 2200, '/Катинки/bumb20.png')">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Блины -->
+        <div class="menu" onclick="toggleProducts('bliny')">
+            <div class="menu--img">
+                <h3 class="imgText3">Блины</h3>
+                <img class="img" src="/Катинки/wei.png" alt="#">
+            </div>
+        </div>
+        
+        <div class="product-cont" id="bliny">
+            <div class="product" data-id="plate-5kg">
+                <div class="img-inf">
+                    <img class="disc" src="/Катинки/wei5.png">
+                    <div class="info">
+                        <h2>Блины для штанги ProTrain 5kg</h2>
+                        <ul>
+                            <li>Вес: 5 кг</li>
+                            <li>Диаметр: 40 см</li>
+                            <li>Материал: сталь</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="details-but">
+                    <div class="items">
+                        <ul class="details">
+                            <li><strong>Гарантия:</strong> 12 месяцев.</li>
+                            <li><strong>Доставка:</strong> Бесплатная доставка по Беларуси.</li>
+                            <li><strong>Способы оплаты:</strong> наличными, безналичными</li>
+                        </ul>
+                    </div>
+                    <div class="but">
+                        <button class="buy-btn">Купить</button>
+                        <button class="add-to-cart" onclick="addProductToCart('plate-5kg', 'Блины для штанги ProTrain 5kg', 650, '/Катинки/wei5.png')">В корзину</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product" data-id="plate-10kg">
+                <div class="img-inf">
+                    <img class="disc" src="/Катинки/wei10.png">
+                    <div class="info">
+                        <h2>Блины для штанги ProTrain 10kg</h2>
+                        <ul>
+                            <li>Вес: 10 кг</li>
+                            <li>Диаметр: 45 см</li>
+                            <li>Материал: сталь</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="details-but">
+                    <div class="items">
+                        <ul class="details">
+                            <li><strong>Гарантия:</strong> 12 месяцев.</li>
+                            <li><strong>Доставка:</strong> Бесплатная доставка по Беларуси.</li>
+                            <li><strong>Способы оплаты:</strong> наличными, безналичными</li>
+                        </ul>
+                    </div>
+                    <div class="but">
+                        <button class="buy-btn">Купить</button>
+                        <button class="add-to-cart" onclick="addProductToCart('plate-10kg', 'Блины для штанги ProTrain 10kg', 1200, '/Катинки/wei10.png')">В корзину</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product" data-id="plate-15kg">
+                <div class="img-inf">
+                    <img class="disc" src="/Катинки/wei15.png">
+                    <div class="info">
+                        <h2>Блины для штанги ProTrain 15kg</h2>
+                        <ul>
+                            <li>Вес: 15 кг</li>
+                            <li>Диаметр: 50 см</li>
+                            <li>Материал: сталь</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="details-but">
+                    <div class="items">
+                        <ul class="details">
+                            <li><strong>Гарантия:</strong> 12 месяцев.</li>
+                            <li><strong>Доставка:</strong> Бесплатная доставка по Беларуси.</li>
+                            <li><strong>Способы оплаты:</strong> наличными, безналичными</li>
+                        </ul>
+                    </div>
+                    <div class="but">
+                        <button class="buy-btn">Купить</button>
+                        <button class="add-to-cart" onclick="addProductToCart('plate-15kg', 'Блины для штанги ProTrain 15kg', 1800, '/Катинки/wei15.png')">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer>
+    <article class="foot">
+        <div class="data">
+            <div class="container--logo">
+                <img src="/Катинки/Logo.svg" alt="" width="80">
+                <a href="" class="logo">Gym <br> House</a> 
+            </div>
+        </div>
+        <div class="data">
+            <p>ООО "Спортсеть" <br>
+            Юридический адрес: <br>
+            ул Пушкина, 52</p>
+        </div>
+        <div class="data">
+            <div>
+                <img src="/Катинки/phone-call.png" class="dat">
+                <p>+375 29 123 45 67</p>
+            </div>
+            <div>
+                <img src="/Катинки/mail.png" class="dat">
+                <p>gymHouse@gmail.com</p>
+            </div>
+            <div>
+                <img src="/Катинки/clock.png" class="dat">
+                <p>пн-пт 8.00-22.00</p>
+            </div>
+        </div>
+    </article>
+</footer>
+
+<!-- Остальная часть HTML без изменений до тега script -->
+
+<script>
+// Добавляем XML обработчики и менеджер корзины
+const XMLHandler = {
+    serialize(cart) {
+        const xmlDoc = document.implementation.createDocument(null, "cart");
+        const root = xmlDoc.documentElement;
+        
+        cart.forEach(item => {
+            const itemElem = xmlDoc.createElement("item");
+            itemElem.setAttribute("id", item.id);
+            itemElem.setAttribute("name", item.name);
+            itemElem.setAttribute("price", item.price);
+            itemElem.setAttribute("image", item.image);
+            itemElem.setAttribute("quantity", item.quantity);
+            root.appendChild(itemElem);
+        });
+        
+        return new XMLSerializer().serializeToString(xmlDoc);
+    },
+
+    deserialize(xmlString) {
+        try {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+            const items = xmlDoc.getElementsByTagName("item");
+            const cart = [];
+            
+            for(let item of items) {
+                cart.push({
+                    id: item.getAttribute("id"),
+                    name: item.getAttribute("name"),
+                    price: parseFloat(item.getAttribute("price")),
+                    image: item.getAttribute("image"),
+                    quantity: parseInt(item.getAttribute("quantity"))
+                });
+            }
+            return cart;
+        } catch(e) {
+            console.error("XML Parse Error:", e);
+            return [];
+        }
+    }
+};
+
+const CartManager = {
+    get() {
+        const xmlData = localStorage.getItem("cart");
+        return xmlData ? XMLHandler.deserialize(xmlData) : [];
+    },
+
+    update(cart) {
+        localStorage.setItem("cart", XMLHandler.serialize(cart));
+    },
+
+    count() {
+        return this.get().reduce((sum, item) => sum + item.quantity, 0);
+    }
+};
+
+// Обновленная инициализация корзины
+document.addEventListener('DOMContentLoaded', function() {
+    // Обновляем счетчик корзины при загрузке страницы
+    updateCartCount();
+    
+    // Обработчик для бургер-меню
+    const burger = document.querySelector('.burger');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+    
+    burger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        
+        if (navMenu.classList.contains('active')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
+    });
+    
+    // Закрытие меню при клике на пункт
+    const navItems = document.querySelectorAll('.header--list--item a');
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            burger.classList.remove('active');
+            navMenu.classList.remove('active');
+            body.style.overflow = '';
+        });
+    });
+    
+    // Инициализация - скрываем все блоки с товарами при загрузке
+    const categories = document.querySelectorAll('.product-cont');
+    categories.forEach(category => {
+        category.style.display = 'none';
+    });
+});
+
+// Функция для обновления счетчика корзины
+function updateCartCount() {
+    document.querySelector('.cart-count').textContent = CartManager.count();
+}
+
+// Функция для переключения отображения категорий товаров (без изменений)
+function toggleProducts(categoryId) {
+    const productCont = document.getElementById(categoryId);
+    productCont.style.display = productCont.style.display === 'none' ? 'flex' : 'none';
+}
+
+// Обновленная функция для добавления товара в корзину
+function addProductToCart(id, name, price, image, alarm = true) {
+    const cart = CartManager.get();
+    const existingItem = cart.find(item => item.id === id);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: id,
+            name: name,
+            price: price,
+            image: image,
+            quantity: 1
+        });
+    }
+
+    CartManager.update(cart);
+    updateCartCount();
+
+    // Показываем уведомление
+    if (alarm) {
+        alert('Товар ' + name + ' добавлен в корзину!');
+    }
+}
+
+// Обновленные обработчики для кнопок "Купить"
+document.querySelectorAll('.buy-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const productElement = this.closest('.product');
+        const id = productElement.dataset.id;
+        const name = productElement.querySelector('h2').textContent;
+        const price = parseInt(this.nextElementSibling.getAttribute('onclick').match(/,\s*(\d+),\s*'/)[1]);
+        const image = productElement.querySelector('img').src;
+        
+        addProductToCart(id, name, price, image, false);
+        window.location.href = '/код/html/page4.html';
+    });
+});
+</script>
+
+</body>
+</html>

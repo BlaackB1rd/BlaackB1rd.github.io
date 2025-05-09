@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/код/sass/page1.scss">
+     <link rel="stylesheet" href="/код/css/page1.css">
+     <link rel="icon" href="/Катинки/Logo.svg">
+    <title>Gym House - Магазин спортивного инвентаря</title>
+    
+</head>
+<body>
+    <div class="wrapper">
+
+        <header>
+    <article class="container">
+        <div class="container--logo">
+            <img src="/Катинки/Logo.svg" alt="" width="80">
+            <a href="" class="logo">Gym <br> House</a>
+        </div>
+        
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav class="nav-menu">
+            <ul class="header--list">
+                <li class="header--list--item"><a href="/код/html/page1.html">Главная</a></li>
+                <li class="header--list--item"><a href="/код/html/page2.html">Каталог</a></li>
+                <li class="header--list--item"><a href="/код/html/page3.html">Доставка и оплата</a></li>
+                <li class="header--list--item">
+                    <a href="/код/html/page4.html" class="cart-icon">
+                        Корзина
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </article>
+</header>
+    </div>
+    <main>
+<div class="gym-pict">
+    <img src="/Катинки/gym.png" class="gympn">
+    <h1>Интернет-магазин <br> инвентаря для зала</h1>
+    <a href="/код/html/page3.html">
+    <button class="but"> Оставить заявку </button>
+    </a>
+</div>
+
+<div class="cont">
+        <div class="text">
+            <h2>О нашем интернет-магазине</h2>
+            <p>Спорт-товары в Минске! <br> 
+Приглашаем за покупками в специализированный интернет-магазин товаров для спорта и аксессуаров. Конечно, каждого интересует, что мы можем предложить нашим клиентам? Ответ прост – абсолютно все, что необходимо людям с активной жизненной позицией, любящим спорт и все, что с ним связано!
+            </p>
+        </div>   
+        <div class="text"> <img src="/Катинки/weight.png"  class="d"></div>
+</div>
+
+<div class="cont">
+     <div class="text"> <img src="/Катинки/tools.png"  class="d"></div>
+        <div class="text">
+            <h2>Еще сомневаетесь и не можете выбрать?</h2>
+            <p>Изучите разделы и подразделы каталога, где представлен исчерпывающий перечень спортивных направлений, которые сегодня развиты во всем мир.
+Вы будете приятно удивлены широким ассортиментом товаров. Спортивные товары, представленные на страницах каталога, имеются в наличии.
+            </p>
+        </div>   
+        </div>
+
+<div class="all-reasons">
+     <h2 class="">Причины выбрать нас:</h2> 
+        <div class="reasons">
+            <img src="/Катинки/smile.png" class="vect">
+            <p>Лучшие консультанты-спортсмены, которые всегда окажут профессиональную помощь.</p>
+        </div>
+
+        <div class="reasons">
+            <img src="/Катинки/shopping-bag.png" class="vect">
+            <p>Огромный ассортимент: у нас необходимый товар найдет как профессионал, так и новичек.</p>
+        </div>
+
+        <div class="reasons">
+            <img src="/Катинки/package.png" class="vect">
+            <p>Курьерская доставка в любую точку Ресублики Беларусь точно в срок.</p>
+        </div>
+
+         <div class="reasons">
+            <img src="/Катинки/check-square.png" class="vect">
+            <p>Гарантия качества - мы продаём только качественный товар выполненный из лучших материалов.</p>
+        </div>
+</div>
+    </main>
+
+    <footer>
+        <article class="foot">
+            <div class="data">
+        <div class="container--logo">
+            <img src="/Катинки/Logo.svg" alt="" width="80">
+            <a href="" class="logo">Gym <br> House</a> 
+        </div>
+        </div>  
+        </article>
+
+<script>
+    const burger = document.querySelector('.burger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    burger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        burger.classList.toggle('active');
+    });
+</script>
+<!-- Встроенный XML -->
+<script id="contact-xml" type="text/xml">
+<contacts>
+    <company>ООО “Спортсеть”</company>
+    <address>ул Пушкина, 52</address>
+    <phone>+375 29 123 45 67</phone>
+    <email>gymHouse@gmail.com</email>
+    <worktime>пн-пт 8.00-22.00</worktime>
+</contacts>
+</script>
+
+<!-- Скрипт парсинга XML и вывода -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const xmlText = document.getElementById("contact-xml").textContent.trim();
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+
+    const company = xmlDoc.querySelector('company').textContent;
+    const address = xmlDoc.querySelector('address').textContent;
+    const phone = xmlDoc.querySelector('phone').textContent;
+    const email = xmlDoc.querySelector('email').textContent;
+    const worktime = xmlDoc.querySelector('worktime').textContent;
+
+    const contactHtml = `
+        <div class="data">
+            <p>${company}<br>${address}</p>
+        </div>
+        <div class="data">
+            <div><img src="/Катинки/phone-call.png" class="dat"><p>${phone}</p></div>
+            <div><img src="/Катинки/mail.png" class="dat"><p>${email}</p></div>
+            <div><img src="/Катинки/clock.png" class="dat"><p>${worktime}</p></div>
+        </div>
+    `;
+
+    document.querySelector(".foot").insertAdjacentHTML("beforeend", contactHtml);
+});
+</script>
+    </footer>
+</body>
+</html>

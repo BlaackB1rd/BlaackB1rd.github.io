@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доставка и оплата | Gym House</title>
+    <link rel="stylesheet" href="/код/css/page3.css">
+    <link rel="icon" href="/Катинки/Logo.svg">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <article class="container">
+                <div class="container--logo">
+                    <img src="/Катинки/Logo.svg" alt="Логотип" width="80">
+                    <a href="/" class="logo">Gym <br> House</a>
+                </div>
+                <nav>
+                    <div class="burger" id="burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="nav-menu" id="navMenu">
+                        <ul class="header--list">
+                            <li class="header--list--item"><a href="/код/html/page1.html">Главная</a></li>
+                            <li class="header--list--item"><a href="/код/html/page2.html">Каталог</a></li>
+                            <li class="header--list--item"><a href="/код/html/page3.html">Доставка и оплата</a></li>
+                            <li class="header--list--item">
+                                <a href="/код/html/page4.html" class="cart-icon">
+                                    Корзина
+                                    <span class="cart-count">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </article>
+        </header>
+    </div>
+
+    <main>
+        <div class="text">
+            <h1>Доставка и оплата</h1>
+
+            <h2>Для физических лиц</h2>
+            <p>
+                Оплата может производиться по наличному и безналичному расчёту. Также, может быть задействована карта рассрочки.
+                Доставка и сборка тренажёров в регионы осуществляется на индивидуальных условиях. Подробности у менеджеров-консультантов +375 29 987-65-43.
+                Самовывоз может осуществляться клиентом по адресу, указанному в заказе.<br>
+                <i>Бесплатная доставка не действует при покупке товара в рассрочку или кредит.</i>
+            </p>
+        </div>
+
+        <div class="delivery">
+            <img class="car" src="/Катинки/delivery.png" alt="Доставка">
+        </div>
+
+        <div class="text">
+            <h2>Для юридических лиц</h2>
+            <p>
+                Оплата может производиться по наличному и безналичному расчёту.
+                Доставка и сборка тренажёров в регионы осуществляется на индивидуальных условиях.
+                Способ доставки определяется продавцом: она может производиться как собственной транспортной службой, так и сторонними перевозчиками.<br>
+                Подробности у менеджеров-консультантов +375 29 987-65-43.
+            </p>
+        </div>
+
+        <div class="cont-form">
+            <form id="order-form">
+                <h2 class="art">Заявка на заказ</h2>
+
+                <div class="form-group">
+                    <label class="labels required">Фамилия:</label>
+                    <input class="inputs" type="text" required data-error="Пожалуйста, введите вашу фамилию">
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="labels required">Имя:</label>
+                    <input class="inputs" type="text" required data-error="Пожалуйста, введите ваше имя">
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="labels">Отчество:</label>
+                    <input class="inputs" type="text">
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="labels required">Номер телефона</label>
+                    <input class="inputs" type="tel" pattern="\+375\s\d{2}\s\d{3}-\d{2}-\d{2}"
+                        placeholder="+375 29 123-45-67" required
+                        data-error="Введите телефон в формате +375 29 123-45-67">
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="labels required">Электронная почта</label>
+                    <input class="inputs" type="email" required data-error="Пожалуйста, введите корректный email">
+                    <div class="error-message"></div>
+                </div>
+
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <article class="foot">
+            <div class="data">
+                <div class="container--logo">
+                    <img src="/Катинки/Logo.svg" alt="" width="80">
+                    <a href="/" class="logo">Gym <br> House</a>
+                </div>
+            </div>
+            <div class="data">
+                <p>ООО "Спортсеть"<br>Юридический адрес:<br>ул. Пушкина, 52</p>
+            </div>
+            <div class="data">
+                <div><img src="/Катинки/phone-call.png" class="dat"><p>+375 29 123 45 67</p></div>
+                <div><img src="/Катинки/mail.png" class="dat"><p>gymHouse@gmail.com</p></div>
+                <div><img src="/Катинки/clock.png" class="dat"><p>пн-пт 8.00–22.00</p></div>
+            </div>
+        </article>
+    </footer>
+
+   <script>
+// Добавляем XML обработчики и менеджер корзины
+const XMLHandler = {
+    serialize(cart) {
+        const xmlDoc = document.implementation.createDocument(null, "cart");
+        const root = xmlDoc.documentElement;
+        
+        cart.forEach(item => {
+            const itemElem = xmlDoc.createElement("item");
+            itemElem.setAttribute("id", item.id);
+            itemElem.setAttribute("name", item.name);
+            itemElem.setAttribute("price", item.price);
+            itemElem.setAttribute("image", item.image);
+            itemElem.setAttribute("quantity", item.quantity);
+            root.appendChild(itemElem);
+        });
+        
+        return new XMLSerializer().serializeToString(xmlDoc);
+    },
+
+    deserialize(xmlString) {
+        try {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+            const items = xmlDoc.getElementsByTagName("item");
+            const cart = [];
+            
+            for(let item of items) {
+                cart.push({
+                    id: item.getAttribute("id"),
+                    name: item.getAttribute("name"),
+                    price: parseFloat(item.getAttribute("price")),
+                    image: item.getAttribute("image"),
+                    quantity: parseInt(item.getAttribute("quantity"))
+                });
+            }
+            return cart;
+        } catch(e) {
+            console.error("XML Parse Error:", e);
+            return [];
+        }
+    }
+};
+
+const CartManager = {
+    get() {
+        const xmlData = localStorage.getItem("cart");
+        return xmlData ? XMLHandler.deserialize(xmlData) : [];
+    },
+
+    update(cart) {
+        localStorage.setItem("cart", XMLHandler.serialize(cart));
+    },
+
+    count() {
+        return this.get().reduce((sum, item) => sum + item.quantity, 0);
+    }
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Обновляем счетчик корзины при загрузке страницы
+    updateCartCount();
+    
+    // Обработчик для бургер-меню
+    const burger = document.querySelector('.burger');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+    
+    burger.addEventListener('click', function() {
+      this.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      
+      if (navMenu.classList.contains('active')) {
+        body.style.overflow = 'hidden';
+      } else {
+        body.style.overflow = '';
+      }
+    });
+    
+    // Закрытие меню при клике на пункт
+    const navItems = document.querySelectorAll('.header--list--item a');
+    navItems.forEach(item => {
+      item.addEventListener('click', function() {
+        burger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.style.overflow = '';
+      });
+    });
+});
+
+// Функция для обновления счетчика корзины
+function updateCartCount() {
+    const count = CartManager.count();
+    document.querySelector('.cart-count').textContent = count;
+}
+
+// Валидация формы
+document.getElementById('order-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let formIsValid = true;
+    const form = this;
+
+    form.querySelectorAll('.form-group').forEach(group => {
+      group.classList.remove('invalid');
+    });
+
+    form.querySelectorAll('[required]').forEach(input => {
+      const group = input.closest('.form-group');
+      const error = group.querySelector('.error-message');
+
+      if (!input.value.trim() || !input.checkValidity()) {
+        group.classList.add('invalid');
+        error.textContent = input.dataset.error || 'Это поле обязательно';
+        formIsValid = false;
+      }
+    });
+
+    if (formIsValid) {
+      alert('Форма успешно отправлена!');
+      form.reset();
+      form.querySelectorAll('.form-group').forEach(group => group.classList.remove('valid'));
+    }
+});
+</script>
+</body>
+</html>

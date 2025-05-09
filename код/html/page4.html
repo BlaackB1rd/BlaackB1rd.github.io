@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - Gym House</title>
+    <link rel="stylesheet" href="/код/css/page4.css">
+    <link rel="icon" href="/Катинки/Logo.svg">
+</head>
+<body>
+
+<header>
+    <article class="container">
+        <div class="container--logo">
+            <img src="/Катинки/Logo.svg" alt="" width="80">
+            <a href="" class="logo">Gym <br> House</a>
+        </div>
+        <nav>
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-menu">
+                <ul class="header--list">
+                    <li class="header--list--item"><a href="/код/html/page1.html">Главная</a></li>
+                    <li class="header--list--item"><a href="/код/html/page2.html">Каталог</a></li>
+                    <li class="header--list--item"><a href="/код/html/page3.html">Доставка и оплата</a></li>
+                    <li class="header--list--item">
+                        <a href="/код/html/page4.html" class="cart-icon">
+                            Корзина
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </article>
+</header>
+
+<main>
+    <div class="order-container">
+        <h2 class="order-title">Оформление заказа</h2>
+        <div class="cart-content">
+            
+        </div>
+        <form class="order-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="required">Фамилия:</label>
+                    <input type="text" name="lastname" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Имя:</label>
+                    <input type="text" name="firstname" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Отчество:</label>
+                    <input type="text" name="middlename">
+                </div>
+                <div class="form-group">
+                    <label class="required">Телефон:</label>
+                    <input type="tel" name="phone" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="required">Email:</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Город:</label>
+                    <input type="text" name="city" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="required">Индекс:</label>
+                    <input type="text" name="postcode" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Адрес:</label>
+                    <input type="text" name="address" required>
+                </div>
+            </div>
+            <div class="payment-method">
+                <h3 class="section-title">Способ оплаты</h3>
+                <div class="payment-options">
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="cash" checked>
+                        <div class="option-content">
+                            <div class="checkmark"></div>
+                            <div class="option-text">
+                                <div class="title">Наличными при получении</div>
+                            </div>
+                        </div>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="card">
+                        <div class="option-content">
+                            <div class="checkmark"></div>
+                            <div class="option-text">
+                                <div class="title">Банковской картой онлайн</div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="order-btn">Оформить заказ</button>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <article class="foot">
+        <div class="data">
+            <div class="container--logo">
+                <img src="/Катинки/Logo.svg" alt="" width="80">
+                <a href="" class="logo">Gym <br> House</a> 
+            </div>
+        </div>
+        <div class="data">
+            <p>ООО "Спортсеть" <br>
+            Юридический адрес: <br>
+            ул Пушкина, 52</p>
+        </div>
+        <div class="data">
+            <div>
+                <img src="/Катинки/phone-call.png" class="dat">
+                <p>+375 29 123 45 67</p>
+            </div>
+            <div>
+                <img src="/Катинки/mail.png" class="dat">
+                <p>gymHouse@gmail.com</p>
+            </div>
+            <div>
+                <img src="/Катинки/clock.png" class="dat">
+                <p>пн-пт 8.00-22.00</p>
+            </div>
+        </div>
+    </article>
+</footer>
+
+<script>
+// XML обработчики
+const XMLHandler = {
+    serialize(cart) {
+        const xmlDoc = document.implementation.createDocument(null, "cart");
+        const root = xmlDoc.documentElement;
+        
+        cart.forEach(item => {
+            const itemElem = xmlDoc.createElement("item");
+            itemElem.setAttribute("id", item.id);
+            itemElem.setAttribute("name", item.name);
+            itemElem.setAttribute("price", item.price);
+            itemElem.setAttribute("image", item.image);
+            itemElem.setAttribute("quantity", item.quantity);
+            root.appendChild(itemElem);
+        });
+        
+        return new XMLSerializer().serializeToString(xmlDoc);
+    },
+
+    deserialize(xmlString) {
+        try {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+            const items = xmlDoc.getElementsByTagName("item");
+            const cart = [];
+            
+            for(let item of items) {
+                cart.push({
+                    id: item.getAttribute("id"),
+                    name: item.getAttribute("name"),
+                    price: parseFloat(item.getAttribute("price")),
+                    image: item.getAttribute("image"),
+                    quantity: parseInt(item.getAttribute("quantity"))
+                });
+            }
+            return cart;
+        } catch(e) {
+            console.error("XML Parse Error:", e);
+            return [];
+        }
+    }
+};
+
+// Менеджер корзины
+const CartManager = {
+    get() {
+        const xmlData = localStorage.getItem("cart");
+        return xmlData ? XMLHandler.deserialize(xmlData) : [];
+    },
+
+    update(cart) {
+        localStorage.setItem("cart", XMLHandler.serialize(cart));
+    },
+
+    count() {
+        return this.get().reduce((sum, item) => sum + item.quantity, 0);
+    }
+};
+
+// Основная логика
+document.addEventListener('DOMContentLoaded', () => {
+    let cart = CartManager.get();
+    const updateInterface = () => {
+        document.querySelector('.cart-count').textContent = CartManager.count();
+        renderCart();
+    };
+
+    function formatPrice(price) {
+        return price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+
+    function renderCart() {
+        const cartContent = document.querySelector('.cart-content');
+        
+        if (cart.length === 0) {
+            cartContent.innerHTML = `
+                <div class="empty-cart">
+                    <div class="empty-icon">🛒</div>
+                    <div class="empty-text">Ваша корзина пуста</div>
+                    <a href="/код/html/page2.html" class="continue-btn">Продолжить покупки</a>
+                </div>`;
+            return;
+        }
+
+        let html = `
+            <div class="cart-items">
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th>Товар</th>
+                            <th>Количество</th>
+                            <th>Цена</th>
+                            <th>Сумма</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+
+        const total = cart.reduce((sum, item) => {
+            const itemTotal = item.price * item.quantity;
+            html += `
+                <tr>
+                    <td data-label="Товар">
+                        <div class="product-info">
+                            <img src="${item.image}" alt="${item.name}" class="product-img">
+                            <span>${item.name}</span>
+                        </div>
+                    </td>
+                    <td data-label="Количество">
+                        <div class="qty-controls">
+                            <button class="qty-btn minus" data-id="${item.id}">-</button>
+                            <span class="qty">${item.quantity}</span>
+                            <button class="qty-btn plus" data-id="${item.id}">+</button>
+                        </div>
+                    </td>
+                    <td data-label="Цена" class="price">${formatPrice(item.price)} руб.</td>
+                    <td data-label="Сумма" class="price">${formatPrice(itemTotal)} руб.</td>
+                    <td>
+                        <button class="remove-btn" data-id="${item.id}">×</button>
+                    </td>
+                </tr>`;
+            return sum + itemTotal;
+        }, 0);
+
+        html += `</tbody></table>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span class="label">Итого:</span>
+                        <span class="value">${formatPrice(total)} руб.</span>
+                    </div>
+                </div>
+            </div>`;
+
+        cartContent.innerHTML = html;
+
+        // Обработчики событий
+        document.querySelectorAll('.qty-btn').forEach(btn => {
+            btn.addEventListener('click', handleQuantity);
+        });
+
+        document.querySelectorAll('.remove-btn').forEach(btn => {
+            btn.addEventListener('click', handleRemove);
+        });
+    }
+
+    function handleQuantity(e) {
+        const id = e.target.dataset.id;
+        const isPlus = e.target.classList.contains('plus');
+        
+        cart = cart.map(item => {
+            if(item.id === id) {
+                item.quantity = isPlus ? 
+                    item.quantity + 1 : 
+                    Math.max(1, item.quantity - 1);
+            }
+            return item;
+        }).filter(item => item.quantity > 0);
+        
+        CartManager.update(cart);
+        updateInterface();
+    }
+
+    function handleRemove(e) {
+        const id = e.target.dataset.id;
+        cart = cart.filter(item => item.id !== id);
+        CartManager.update(cart);
+        updateInterface();
+    }
+
+    // Обработчик оформления заказа
+    document.querySelector('.order-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (cart.length === 0) {
+            alert('Ваша корзина пуста!');
+            return;
+        }
+
+        // Очистка корзины
+        cart = [];
+        CartManager.update(cart);
+        updateInterface();
+        
+        alert('Заказ успешно оформлен! Спасибо за покупку!');
+        this.reset();
+    });
+
+    // Инициализация
+    updateInterface();
+});
+
+// Функция добавления в корзину (для других страниц)
+function addToCart(product) {
+    const cart = CartManager.get();
+    const existing = cart.find(item => item.id === product.id);
+
+    if(existing) {
+        existing.quantity += product.quantity || 1;
+    } else {
+        cart.push({
+            ...product,
+            quantity: product.quantity || 1
+        });
+    }
+
+    CartManager.update(cart);
+    
+    // Уведомление
+    const notification = document.createElement('div');
+    notification.className = 'cart-notification';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span>Товар "${product.name}" добавлен в корзину!</span>
+            <a href="/код/html/page4.html">Перейти в корзину</a>
+        </div>`;
+    
+    document.body.appendChild(notification);
+    setTimeout(() => notification.classList.add('show'), 10);
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// Бургер-меню
+document.querySelector('.burger').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('.nav-menu').classList.toggle('active');
+    document.body.style.overflow = 
+        document.body.style.overflow === 'hidden' ? '' : 'hidden';
+});
+</script>
+
+</body>
+</html>
